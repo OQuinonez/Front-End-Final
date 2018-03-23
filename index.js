@@ -301,6 +301,11 @@ function loadPages() {
     $('#back').click(function () {
         $('#Store').show();
         $('#signup-Page').hide();
+    });
+    $('#Log-In').click(function () {
+        $('#Store').hide();
+        $('signup-Page').hide();
+        $('#login-Page').show();
     })
 }
 
