@@ -294,10 +294,14 @@ var PAGE_DATA = {};
 
 function loadPages() {
     $('#Sign-Up').click(function () {
-        console.log("Hello World");
         $('#Store').hide();
         $('#signup-Page').show();
     });
+
+    $('#back').click(function () {
+        $('#Store').show();
+        $('#signup-Page').hide();
+    })
 }
 
 function main() {
