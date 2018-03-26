@@ -38,6 +38,7 @@ function validName() {
     const input = $('#username');
     input.on('input', function(event) {
         nameErrorHtml(event.currentTarget.value);
+        button();
     });
 }
 
@@ -75,7 +76,6 @@ function passwordMsg(password) {
 }
 
 function pwErrorHtml(password) {
-    console.log('user');
     var group = $('#password')
         .parent()
         .closest('.form-group');
@@ -96,6 +96,7 @@ function validPassword() {
     const input = $('#password');
     input.on('input', function(event) {
         pwErrorHtml(event.currentTarget.value);
+        button();
     });
 }
 
@@ -118,7 +119,6 @@ function emailMsg(email) {
 }
 
 function emailErrorHtml(email) {
-    console.log('user');
     var group = $('#email')
         .parent()
         .closest('.form-group');
@@ -154,6 +154,10 @@ function checkValidPassword() {
 
 function checkValidEmail() {
     return emailErrorHtml($('#email').val()).trim() === '';
+}
+
+function checkValidAddress() {
+    return;
 }
 
 function checkSignInForm() {
@@ -199,6 +203,31 @@ function loadPages() {
         $('#login-Page').show();
     });
 }
+
+function CreateNewUser(UserName, UAddress, Email, PassCode) {
+    fetch('http://localhost:8080/posts/new/', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({
+            UserName: UserName,
+            UAddress: UAddress,
+            Email: Email,
+            PassCode: PassCode
+        })
+    });
+}
+
+document.getElementById('signInForm').onsubmit = event => {
+    let UserName = form.UserName.value;
+    let UAddress = form.UAddress.value;
+    let Email = form.Email.value;
+    let PassCode = form.PassCode.value;
+
+    CreateNewUser(UserName, UAddress, Email, PassCode);
+    return false;
+};
+
+window.onload = () => fetch('http://localhost:8080/products/');
 
 function main() {
     validName();
