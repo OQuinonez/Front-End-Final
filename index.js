@@ -38,7 +38,7 @@ function validName() {
     const input = $('#username');
     input.on('input', function(event) {
         nameErrorHtml(event.currentTarget.value);
-        button();
+        // button();
     });
 }
 
@@ -96,7 +96,7 @@ function validPassword() {
     const input = $('#password');
     input.on('input', function(event) {
         pwErrorHtml(event.currentTarget.value);
-        button();
+        // button();
     });
 }
 
@@ -162,7 +162,7 @@ function checkValidAddress() {
 
 function checkSignInForm() {
     if (
-        checkValidUser() &&
+        // checkValidUser() &&
         checkValidPassword() &&
         checkValidEmail() &&
         checkValidName()
@@ -204,30 +204,30 @@ function loadPages() {
     });
 }
 
-function CreateNewUser(UserName, UAddress, Email, PassCode) {
-    fetch('http://localhost:8080/posts/new/', {
-        method: 'POST',
-        mode: 'cors',
-        body: JSON.stringify({
-            UserName: UserName,
-            UAddress: UAddress,
-            Email: Email,
-            PassCode: PassCode
-        })
-    });
-}
+// function CreateNewUser(UserName, UAddress, Email, PassCode) {
+//     fetch('http://localhost:8080/posts/new/', {
+//         method: 'POST',
+//         mode: 'cors',
+//         body: JSON.stringify({
+//             UserName: UserName,
+//             UAddress: UAddress,
+//             Email: Email,
+//             PassCode: PassCode
+//         })
+//     });
+// }
 
-document.getElementById('signInForm').onsubmit = event => {
-    let UserName = form.UserName.value;
-    let UAddress = form.UAddress.value;
-    let Email = form.Email.value;
-    let PassCode = form.PassCode.value;
+// document.getElementById('signInForm').onsubmit = event => {
+//     let UserName = form.UserName.value;
+//     let UAddress = form.UAddress.value;
+//     let Email = form.Email.value;
+//     let PassCode = form.PassCode.value;
 
-    CreateNewUser(UserName, UAddress, Email, PassCode);
-    return false;
-};
+//     CreateNewUser(UserName, UAddress, Email, PassCode);
+//     return false;
+// };
 
-window.onload = () => fetch('http://localhost:8080/products/');
+// window.onload = () => fetch('http://localhost:8080/products/');
 
 function main() {
     validName();
