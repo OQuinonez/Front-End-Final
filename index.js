@@ -36,7 +36,7 @@ function nameErrorHtml(name) {
 
 function validName() {
     const input = $('#username');
-    input.on('input', function(event) {
+    input.on('input', function (event) {
         nameErrorHtml(event.currentTarget.value);
         // button();
     });
@@ -94,7 +94,7 @@ function pwErrorHtml(password) {
 
 function validPassword() {
     const input = $('#password');
-    input.on('input', function(event) {
+    input.on('input', function (event) {
         pwErrorHtml(event.currentTarget.value);
         // button();
     });
@@ -137,7 +137,7 @@ function emailErrorHtml(email) {
 
 function validEmail() {
     const input = $('#email');
-    input.on('input', function(event) {
+    input.on('input', function (event) {
         emailErrorHtml(event.currentTarget.value);
     });
 }
@@ -156,13 +156,8 @@ function checkValidEmail() {
     return emailErrorHtml($('#email').val()).trim() === '';
 }
 
-function checkValidAddress() {
-    return;
-}
-
 function checkSignInForm() {
     if (
-        // checkValidUser() &&
         checkValidPassword() &&
         checkValidEmail() &&
         checkValidName()
@@ -178,26 +173,26 @@ function checkSignInForm() {
     }
 }
 
-$('#signInForm').on('submit', function(event) {
+$('#signInForm').on('submit', function (event) {
     event.preventDefault();
     checkSignInForm();
 });
 
 function loadPages() {
-    $('#Sign-Up').click(function() {
+    $('#Sign-Up').click(function () {
         $('#Store').hide();
         $('#signup-Page').show();
     });
-    $('#back').click(function() {
+    $('#back').click(function () {
         $('#Store').show();
         $('#signup-Page').hide();
     });
-    $('#Back').click(function() {
+    $('#Back').click(function () {
         $('#Store').show();
         $('#signup-Page').hide();
         $('#login-Page').hide();
     });
-    $('#Log-In').click(function() {
+    $('#Log-In').click(function () {
         $('#Store').hide();
         $('signup-Page').hide();
         $('#login-Page').show();
