@@ -36,7 +36,7 @@ function nameErrorHtml(name) {
 
 function validName() {
     const input = $('#username');
-    input.on('input', function (event) {
+    input.on('input', function(event) {
         nameErrorHtml(event.currentTarget.value);
         // button();
     });
@@ -94,7 +94,7 @@ function pwErrorHtml(password) {
 
 function validPassword() {
     const input = $('#password');
-    input.on('input', function (event) {
+    input.on('input', function(event) {
         pwErrorHtml(event.currentTarget.value);
         // button();
     });
@@ -137,7 +137,7 @@ function emailErrorHtml(email) {
 
 function validEmail() {
     const input = $('#email');
-    input.on('input', function (event) {
+    input.on('input', function(event) {
         emailErrorHtml(event.currentTarget.value);
     });
 }
@@ -157,11 +157,7 @@ function checkValidEmail() {
 }
 
 function checkSignInForm() {
-    if (
-        checkValidPassword() &&
-        checkValidEmail() &&
-        checkValidName()
-    ) {
+    if (checkValidPassword() && checkValidEmail() && checkValidName()) {
         $('#signInForm').hide(1050);
         $('#afterFormMessage')
             .html('<h3 class="text-success">Successfully registered!</h3>')
@@ -173,54 +169,37 @@ function checkSignInForm() {
     }
 }
 
-$('#signInForm').on('submit', function (event) {
+$('#signInForm').on('submit', function(event) {
     event.preventDefault();
     checkSignInForm();
 });
 
 function loadPages() {
-    $('#Sign-Up').click(function () {
+    $('#Sign-Up').click(function() {
         $('#Store').hide();
         $('#signup-Page').show();
     });
-    $('#back').click(function () {
+    $('#back').click(function() {
         $('#Store').show();
         $('#signup-Page').hide();
     });
-    $('#Back').click(function () {
+    $('#Back').click(function() {
         $('#Store').show();
         $('#signup-Page').hide();
         $('#login-Page').hide();
     });
-    $('#Log-In').click(function () {
+    $('#Log-In').click(function() {
         $('#Store').hide();
         $('signup-Page').hide();
         $('#login-Page').show();
     });
 }
 
-// function CreateNewUser(UserName, UAddress, Email, PassCode) {
-//     fetch('http://localhost:8080/posts/new/', {
-//         method: 'POST',
-//         mode: 'cors',
-//         body: JSON.stringify({
-//             UserName: UserName,
-//             UAddress: UAddress,
-//             Email: Email,
-//             PassCode: PassCode
-//         })
-//     });
-// }
-
 // document.getElementById('signInForm').onsubmit = event => {
 //     let UserName = form.UserName.value;
 //     let UAddress = form.UAddress.value;
 //     let Email = form.Email.value;
 //     let PassCode = form.PassCode.value;
-
-//     CreateNewUser(UserName, UAddress, Email, PassCode);
-//     return false;
-// };
 
 // window.onload = () => fetch('http://localhost:8080/products/');
 
