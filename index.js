@@ -182,6 +182,13 @@ $('#signInForm').on('submit', function(event) {
     // checkSignInForm();
 });
 
+$('login-Page').on('submit', function(event) {
+    event.preventDefault();
+    $('#signup-Page').hide();
+    $('#login-page').hide();
+    $('#feed-div').show();
+});
+
 function loadPages() {
     $('#Sign-Up').click(function() {
         $('#Store').hide();
