@@ -157,21 +157,29 @@ function checkValidEmail() {
 }
 
 function checkSignInForm() {
-    if (checkValidPassword() && checkValidEmail() && checkValidName()) {
-        $('#signInForm').hide(1050);
-        $('#afterFormMessage')
-            .html('<h3 class="text-success">Successfully registered!</h3>')
-            .show(250);
-    } else {
-        $('#afterFormMessage')
-            .html('<h4 class="text-danger">Incomplete Form</h4>')
-            .show(250);
-    }
+    // if (checkValidPassword() && checkValidEmail() && checkValidName()) {
+    //     $('#signInForm').hide(1050);
+    //     $('#afterFormMessage')
+    //         .html('<h3 class="text-success">Successfully registered!</h3>')
+    //         .show(250);
+    // } else {
+    //     $('#afterFormMessage')
+    //         .html('<h4 class="text-danger">Incomplete Form</h4>')
+    //         .show(250);
+    // }
+    // $('#SignUP').click(function() {
+    //     $('#signup-page').hide();
+    //     $('#login-page').hide();
+    //     $('#feed-div').show();
+    // });
 }
 
 $('#signInForm').on('submit', function(event) {
     event.preventDefault();
-    checkSignInForm();
+    $('#signup-Page').hide();
+    $('#login-page').hide();
+    $('#feed-div').show();
+    // checkSignInForm();
 });
 
 function loadPages() {
