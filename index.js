@@ -157,37 +157,26 @@ function checkValidEmail() {
 }
 
 function checkSignInForm() {
-    // if (checkValidPassword() && checkValidEmail() && checkValidName()) {
-    //     $('#signInForm').hide(1050);
-    //     $('#afterFormMessage')
-    //         .html('<h3 class="text-success">Successfully registered!</h3>')
-    //         .show(250);
-    // } else {
-    //     $('#afterFormMessage')
-    //         .html('<h4 class="text-danger">Incomplete Form</h4>')
-    //         .show(250);
-    // }
-    // $('#SignUP').click(function() {
-    //     $('#signup-page').hide();
-    //     $('#login-page').hide();
-    //     $('#feed-div').show();
-    // });
+    if (checkValidPassword() && checkValidEmail() && checkValidName()) {
+        $('#signup-Page').hide();
+        $('#login-page').hide();
+        $('#feed-div').show();
+    } else {
+        $('#afterFormMessage')
+            .html('<h4 class="text-danger">Incomplete Form</h4>')
+            .show(250);
+    }
 }
 
 $('#signInForm').on('submit', function(event) {
     event.preventDefault();
-    $('#signup-Page').hide();
-    $('#login-page').hide();
-    $('#feed-div').show();
-    // checkSignInForm();
+    checkSignInForm();
 });
 
-$('login-Page').on('submit', function(event) {
-    event.preventDefault();
-    $('#signup-Page').hide();
-    $('#login-page').hide();
-    $('#feed-div').show();
-});
+// $('login-Page').on('submit', function(event) {
+//     event.preventDefault();
+//     checkSignInForm();
+// });
 
 function loadPages() {
     $('#Sign-Up').click(function() {
@@ -197,15 +186,19 @@ function loadPages() {
     $('#back').click(function() {
         $('#Store').show();
         $('#signup-Page').hide();
+        $('#login-Page').hide();
+        $('#feed-div').hide();
     });
     $('#Back').click(function() {
         $('#Store').show();
         $('#signup-Page').hide();
         $('#login-Page').hide();
+        $('#feed-div').hide();
     });
     $('#Log-In').click(function() {
         $('#Store').hide();
         $('signup-Page').hide();
+        $('#feed-div').hide();
         $('#login-Page').show();
     });
 }
