@@ -1,4 +1,4 @@
-function inventory(products) {
+function inventoryDisplay(products) {
     var realInventory = products
         .map(function(inventory) {
             return [
@@ -35,3 +35,19 @@ function inventory(products) {
 
     return '<h3> Here Are our Products</h3>' + realInventory;
 }
+
+function initializeInventory(inventory) {
+    $('#DisplayInventory').html(inventoryDisplay(inventory));
+}
+
+function showInventory() {
+    fetch('http://localhost:8080/products')
+        .then(response => response.json())
+        .then(initializeInventory);
+}
+
+function main() {
+    showInventory();
+}
+
+$(main);
