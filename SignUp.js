@@ -32,39 +32,51 @@ function CreateNewUser() {
         });
 }
 
-function logIn() {
-    console.log(
-        JSON.stringify({
-            Email: $('#LogIn-email').val(),
-            Password: $('#Logpassword').val()
-        })
-    );
-    fetch('http://localhost:8080/login', {
-        method: 'POST',
+function logIn(event) {
+    console.log($('#LogIn-email').val());
+    console.log($('#Logpassword').val());
+    $.ajax({
+        url: 'http://localhost:8080/login',
+        method: 'Post',
         dataType: 'json',
-        body: JSON.stringify({
-            email: $('#LogIn-email').val(),
-            hashedPassword: $('#Logpassword').val()
-        }),
         crossDomain: true,
         data: JSON.stringify({
-            Email: $('#LogIn-email').val(),
-            pass_word: $('#Logpassword').val()
+            email: $('#LogIn-email').val(),
+            password: $('#Logpassword').val()
         }),
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        // contentType: 'application/json',
-        // mimeType: 'application/json',
-        dataType: 'json',
-        crossDomain: true
-        // error: function(data, status, er) {
-        //     alert('UserName or Password incorrect please try again!!');
-        // }
+        contentType: 'application/json',
+        mimeType: 'application/json'
     })
+        // fetch('http://localhost:8080/login', {
+        //     mode: 'no-cors',
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         email: $('#LogIn-email').val(),
+        //         hashedPassword: $('#Logpassword').val()
+        //     }),
+        //     // crossDomain: true,
+        //     // data: JSON.stringify({
+        //     //     Email: $('#LogIn-email').val(),
+        //     //     pass_word: $('#Logpassword').val()
+        //     // }),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     contentType: 'application/json',
+        //     mimeType: 'application/json',
+        //     dataType: 'json',
+        //     crossDomain: true
+        //     // error: function(data, status, er) {
+        //     //     alert('UserName or Password incorrect please try again!!');
+        //     // }
+        // })
         .then(function handleResponse(response) {
             var DATA = response;
             console.log(DATA);
+            $('#Store').hide();
+            $('#signup-Page').hide();
+            $('#login-Page').hide();
+            $('#feed-div').show();
         })
         .catch(function handleError(error) {
             console.log(error);
@@ -124,12 +136,7 @@ $('#signInForm').on('submit', function(event) {
 
 $('#logInForm').on('submit', function(event) {
     event.preventDefault();
-    logIn();
-    console.log('It does Something');
-    $('#Store').hide();
-    $('#signup-Page').hide();
-    $('#login-Page').hide();
-    $('#feed-div').show();
+    logIn(event);
 });
 
 function main() {
