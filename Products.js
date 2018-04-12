@@ -60,6 +60,48 @@ function showInventory() {
     // .then(initializeInventory());
 }
 
+function sellItem() {
+    console.log(
+        JSON.stringify({
+            ItemName: $('#itemName').val(),
+            price: $('#price').val(),
+            PicAddress: $('#picAddress').val()
+        })
+    );
+    fetch('http://localhost:8080/Sell', {
+        method: 'POST',
+        body: JSON.stringify({
+            ItemName: $('#itemName').val(),
+            Category: '',
+            Price: $('#price').val(),
+            Quantity: 1,
+            PicAddress: $('#picAddress').val()
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        dataType: 'json',
+        crossDomain: true
+    })
+        .then(function handleResponse(response) {
+            var DATA = response;
+            console.log(DATA);
+        })
+        .catch(function handleError(error) {
+            console.log(error);
+        });
+}
+
+$('#sellForm').on('submit', function(event) {
+    event.preventDefault();
+    sellItem();
+    // $('#purchased').show();
+    // $('#signup-Page').hide();
+    // $('#login-Page').hide();
+    // $('#feed-div').hide();
+    // $('#Store').hide();
+});
+
 function main() {
     showInventory();
 }
