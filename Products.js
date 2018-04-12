@@ -11,16 +11,15 @@ function inventoryDisplay(products) {
                     '<b>Name: </b>' +
                     inventory.ItemName +
                     '<br>' +
-                    // '<b>Description: </b>' +
-                    // inventory.description +
-                    // '<br>' +
                     '<b>Price: $</b>' +
                     inventory.Price +
                     '<br>' +
                     '<b>Quantity: </b>' +
                     inventory.Quantity +
                     '<p></p>',
-                '<button type="button" class="btn btn-primary" onclick="">' +
+                '<button type="submit" id="BuyItem" class="btn btn-primary" onclick="buyItem(' +
+                    inventory.ItemID +
+                    ')">' +
                     '<i class="fa fa-shopping-cart" aria-hidden="true"></i>     Buy Item</button>',
                 '</div>'
                 // if (inventory.quatity > 0) {
@@ -60,6 +59,42 @@ function showInventory() {
     // .then(initializeInventory());
 }
 
+function buyItem(productID) {
+    console.log('The button is working');
+    console.log(productID);
+    var url = 'http://localhost:8080/Buy/' + productID;
+    $.ajax({
+        url: url,
+        method: 'Post',
+        dataType: 'json',
+        crossDomain: false,
+        data: JSON.stringify({
+            productID: productID
+        }),
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        mode: 'cors'
+    })
+        // fetch('http://localhost:8080/Buy/' + productID, {
+        //     method: 'DELETE',
+        //     // body: JSON.stringify({
+        //     //     ItemName:
+        //     // })
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     dataType: 'json',
+        //     mode: 'no-cors'
+        // })
+        .then(function handleResponse(response) {
+            var DATA = response;
+            console.log(DATA);
+        })
+        .catch(function handleError(error) {
+            console.log(error);
+        });
+}
+
 function sellItem() {
     console.log(
         JSON.stringify({
@@ -91,6 +126,11 @@ function sellItem() {
             console.log(error);
         });
 }
+
+// $('#BuyItem').on('submit', function(event) {
+//     event.preventDefault();
+// buyItem();
+// });
 
 $('#sellForm').on('submit', function(event) {
     event.preventDefault();
