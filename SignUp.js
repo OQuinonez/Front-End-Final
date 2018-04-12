@@ -73,10 +73,6 @@ function logIn(event) {
         .then(function handleResponse(response) {
             var DATA = response;
             console.log(DATA);
-            $('#Store').hide();
-            $('#signup-Page').hide();
-            $('#login-Page').hide();
-            $('#feed-div').show();
         })
         .catch(function handleError(error) {
             console.log(error);
@@ -137,6 +133,10 @@ $('#signInForm').on('submit', function(event) {
 $('#logInForm').on('submit', function(event) {
     event.preventDefault();
     logIn(event);
+    $('#Store').hide();
+    $('#signup-Page').hide();
+    $('#login-Page').hide();
+    $('#feed-div').show();
 });
 
 function main() {
