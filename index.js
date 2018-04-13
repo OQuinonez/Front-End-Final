@@ -180,26 +180,52 @@ $('#signInForm').on('submit', function(event) {
 
 function loadPages() {
     $('#Sign-Up').click(function() {
-        $('#Store').hide();
         $('#signup-Page').show();
+        $('#Store').hide();
+        $('#feed-div').hide();
+        $('#login-Page').hide();
+        $('#purchased').hide();
+        $('#sell-Page').hide();
     });
     $('#back').click(function() {
         $('#Store').show();
         $('#signup-Page').hide();
-        $('#login-Page').hide();
         $('#feed-div').hide();
+        $('#login-Page').hide();
+        $('#purchased').hide();
+        $('#sell-Page').hide();
     });
     $('#Back').click(function() {
         $('#Store').show();
         $('#signup-Page').hide();
-        $('#login-Page').hide();
         $('#feed-div').hide();
+        $('#login-Page').hide();
+        $('#purchased').hide();
+        $('#sell-Page').hide();
+    });
+    $('#backToFeed').click(function() {
+        $('#feed-div').show();
+        $('#signup-Page').hide();
+        $('#Store').hide();
+        $('#login-Page').hide();
+        $('#purchased').hide();
+        $('#sell-Page').hide();
     });
     $('#Log-In').click(function() {
-        $('#Store').hide();
-        $('signup-Page').hide();
-        $('#feed-div').hide();
         $('#login-Page').show();
+        $('#Store').hide();
+        $('#signup-Page').hide();
+        $('#feed-div').hide();
+        $('#purchased').hide();
+        $('#sell-Page').hide();
+    });
+    $('#sellStuff').click(function() {
+        $('#sell-Page').show();
+        $('#login-Page').hide();
+        $('#Store').hide();
+        $('#signup-Page').hide();
+        $('#feed-div').hide();
+        $('#purchased').hide();
     });
 }
 
