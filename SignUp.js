@@ -34,7 +34,7 @@ function CreateNewUser() {
 
 function logIn(event) {
     console.log($('#LogIn-email').val());
-    console.log($('#Logpassword').val());
+    // console.log($('#Logpassword').val());
     $.ajax({
         url: 'http://localhost:8080/login',
         method: 'Post',
@@ -72,7 +72,7 @@ function logIn(event) {
         // })
         .then(function handleResponse(response) {
             var DATA = response;
-            console.log(DATA);
+            // console.log(DATA);
         })
         .catch(function handleError(error) {
             console.log(error);
