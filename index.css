@@ -1,5 +1,5 @@
 .jumbotron {
-    background-color: burlywood;
+    background-color: rgba(196, 189, 189, 0.7);
 }
 
 .container {
@@ -8,4 +8,16 @@
     width: 100%;
     height: 100%;
     overflow: auto;
+}
+
+.SignLog {
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.home-image {
+    border-radius: 12px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
