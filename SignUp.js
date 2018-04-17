@@ -34,7 +34,6 @@ function CreateNewUser() {
 
 function logIn(event) {
     console.log($('#LogIn-email').val());
-    // console.log($('#Logpassword').val());
     $.ajax({
         url: 'http://localhost:8080/login',
         method: 'Post',
@@ -47,34 +46,16 @@ function logIn(event) {
         contentType: 'application/json',
         mimeType: 'application/json'
     })
-        // fetch('http://localhost:8080/login', {
-        //     mode: 'no-cors',
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         email: $('#LogIn-email').val(),
-        //         hashedPassword: $('#Logpassword').val()
-        //     }),
-        //     // crossDomain: true,
-        //     // data: JSON.stringify({
-        //     //     Email: $('#LogIn-email').val(),
-        //     //     pass_word: $('#Logpassword').val()
-        //     // }),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     contentType: 'application/json',
-        //     mimeType: 'application/json',
-        //     dataType: 'json',
-        //     crossDomain: true
-        //     // error: function(data, status, er) {
-        //     //     alert('UserName or Password incorrect please try again!!');
-        //     // }
-        // })
         .then(function handleResponse(response) {
+            console.log('Successfully logged IN');
             var DATA = response;
-            // console.log(DATA);
+            $('#Store').hide();
+            $('#signup-Page').hide();
+            $('#login-Page').hide();
+            $('#feed-div').show();
         })
         .catch(function handleError(error) {
+            console.log('Something Is Wrong');
             console.log(error);
         });
 }
@@ -133,15 +114,8 @@ $('#signInForm').on('submit', function(event) {
 $('#logInForm').on('submit', function(event) {
     event.preventDefault();
     logIn(event);
-    $('#Store').hide();
-    $('#signup-Page').hide();
-    $('#login-Page').hide();
-    $('#feed-div').show();
 });
 
-function main() {
-    // CreateNewUser();
-    // logIn();
-}
+function main() {}
 
 $(main);

@@ -181,6 +181,7 @@ $('#signInForm').on('submit', function(event) {
 function loadPages() {
     $('#Sign-Up').click(function() {
         $('#signup-Page').show();
+        $('#purchased').hide();
         $('#Store').hide();
         $('#feed-div').hide();
         $('#login-Page').hide();
@@ -189,6 +190,7 @@ function loadPages() {
     });
     $('#back').click(function() {
         $('#Store').show();
+        $('#purchased').hide();
         $('#signup-Page').hide();
         $('#feed-div').hide();
         $('#login-Page').hide();
@@ -197,6 +199,7 @@ function loadPages() {
     });
     $('#Back').click(function() {
         $('#Store').show();
+        $('#purchased').hide();
         $('#signup-Page').hide();
         $('#feed-div').hide();
         $('#login-Page').hide();
@@ -205,6 +208,7 @@ function loadPages() {
     });
     $('#backToFeed').click(function() {
         $('#feed-div').show();
+        $('#purchased').hide();
         $('#signup-Page').hide();
         $('#Store').hide();
         $('#login-Page').hide();
@@ -213,6 +217,7 @@ function loadPages() {
     });
     $('#Log-In').click(function() {
         $('#login-Page').show();
+        $('#purchased').hide();
         $('#Store').hide();
         $('#signup-Page').hide();
         $('#feed-div').hide();
@@ -221,6 +226,16 @@ function loadPages() {
     });
     $('#sellStuff').click(function() {
         $('#sell-Page').show();
+        $('#purchased').hide();
+        $('#login-Page').hide();
+        $('#Store').hide();
+        $('#signup-Page').hide();
+        $('#feed-div').hide();
+        $('#purchased').hide();
+    });
+    $('#BuyItem').click(function() {
+        $('#purchased').show();
+        $('#sell-Page').hide();
         $('#login-Page').hide();
         $('#Store').hide();
         $('#signup-Page').hide();

@@ -17,7 +17,7 @@ function inventoryDisplay(products) {
                     '<b>Quantity: </b>' +
                     inventory.Quantity +
                     '<p></p>',
-                '<button type="submit" id="BuyItem" class="btn btn-primary" onclick="buyItem(' +
+                '<button type="button" id="BuyItem" class="btn btn-primary" onclick="buyItem(' +
                     inventory.ItemID +
                     ')">' +
                     '<i class="fa fa-shopping-cart" aria-hidden="true"></i>     Buy Item</button>',
@@ -62,6 +62,13 @@ function showInventory() {
 function buyItem(productID) {
     console.log('The button is working');
     console.log(productID);
+    $('#purchased').show();
+    $('#sell-Page').hide();
+    $('#login-Page').hide();
+    $('#Store').hide();
+    $('#signup-Page').hide();
+    $('#feed-div').hide();
+    $('#purchased').hide();
     var url = 'http://localhost:8080/Buy/' + productID;
     $.ajax({
         url: url,
@@ -88,6 +95,8 @@ function buyItem(productID) {
         // })
         .then(function handleResponse(response) {
             var DATA = response;
+            // $('#BuyItem').click(function() {
+            // });
             console.log(DATA);
         })
         .catch(function handleError(error) {

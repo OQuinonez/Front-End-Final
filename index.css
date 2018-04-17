@@ -21,3 +21,12 @@
     margin-left: 80px;
     margin-right: 80px;
 }
+
+.products {
+    background-color: #faf5f5;
+    padding: 10px;
+    width: 375px;
+    height: 400px;
+    margin-bottom: 15px;
+    margin-right: 7px;
+}
