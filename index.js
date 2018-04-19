@@ -173,11 +173,6 @@ $('#signInForm').on('submit', function(event) {
     checkSignInForm();
 });
 
-// $('login-Page').on('submit', function(event) {
-//     event.preventDefault();
-//     checkSignInForm();
-// });
-
 function loadPages() {
     $('#Sign-Up').click(function() {
         $('#signup-Page').show();
@@ -269,14 +264,6 @@ function loadPages() {
         $('#purchased').hide();
     });
 }
-
-// document.getElementById('signInForm').onsubmit = event => {
-//     let UserName = form.UserName.value;
-//     let UAddress = form.UAddress.value;
-//     let Email = form.Email.value;
-//     let PassCode = form.PassCode.value;
-
-// window.onload = () => fetch('http://localhost:8080/products/');
 
 function main() {
     validName();
