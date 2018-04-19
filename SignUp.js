@@ -96,12 +96,13 @@ function logout() {
                 .val();
 
             $('#Store').show();
+            $('#newFeed-div').hide();
             $('#signup-Page').hide();
             $('#login-Page').hide();
             $('#feed-div').hide();
+            $('#purchased').hide();
+            $('#sell-Page').hide();
             console.log('Did the correct thing');
-            // var DATA = response;
-            // console.log(DATA);
         })
         .catch(function catchError(error) {});
 }
