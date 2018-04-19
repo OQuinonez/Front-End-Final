@@ -22,16 +22,6 @@ function inventoryDisplay(products) {
                     ')">' +
                     '<i class="fa fa-shopping-cart" aria-hidden="true"></i>     Buy Item</button>',
                 '</div>'
-                // if (inventory.quatity > 0) {
-                //     html +=
-                //         '<button type="button" class="btn btn-primary" onclick="takeAway(' +
-                //         i +
-                //         ')">' +
-                //         '<i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</button>';
-                // } else if (inventory.quantity <= 0) {
-                //     html +=
-                //         '<div class="warning"> <b> Item is out of stock sorry! </b></div>';
-                // }
             ].join('');
         })
         .join('');
@@ -40,9 +30,48 @@ function inventoryDisplay(products) {
     $('#DisplayInventory').html(realInventory);
 }
 
-// function initializeInventory(inventory) {
-//     $('#DisplayInventory').html(inventoryDisplay(inventory));
-// }
+function newDisplay(products) {
+    console.log(products);
+    var realInventory = products
+        .map(function(inventory) {
+            return [
+                '<div class="col-lg-4 col-md-4 col-sm-4 products">' +
+                    '<img src="' +
+                    inventory.PicAddress +
+                    '">' +
+                    '<p></p>' +
+                    '<b>Name: </b>' +
+                    inventory.ItemName +
+                    '<br>' +
+                    '<b>Price: $</b>' +
+                    inventory.Price +
+                    '<br>' +
+                    '<b>Quantity: </b>' +
+                    inventory.Quantity +
+                    '<p></p>',
+                '<button type="button" id="newBuyItem" class="btn btn-primary" onclick="buyItem(' +
+                    inventory.ItemID +
+                    ')">' +
+                    '<i class="fa fa-shopping-cart" aria-hidden="true"></i>     Buy Item</button>',
+                '</div>'
+            ].join('');
+        })
+        .join('');
+
+    realInventory = '<h3> Here Are our Products</h3>' + realInventory;
+    $('#newDisplay').html(realInventory);
+}
+
+$('#newFeed').click(function() {
+    showNewInventory();
+    $('#newFeed-div').show();
+    $('#purchased').hide();
+    $('#signup-Page').hide();
+    $('#Store').hide();
+    $('#login-Page').hide();
+    $('#purchased').hide();
+    $('#sell-Page').hide();
+});
 
 function showInventory() {
     fetch('http://localhost:8080/products').then(response =>
@@ -56,7 +85,20 @@ function showInventory() {
                 inventoryDisplay(res.data);
             })
     );
-    // .then(initializeInventory());
+}
+
+function showNewInventory() {
+    fetch('http://localhost:8080/products').then(response =>
+        response
+            .json()
+            .then(data => ({
+                data: data,
+                status: response.status
+            }))
+            .then(res => {
+                newDisplay(res.data);
+            })
+    );
 }
 
 function buyItem(productID) {
@@ -68,7 +110,6 @@ function buyItem(productID) {
     $('#Store').hide();
     $('#signup-Page').hide();
     $('#feed-div').hide();
-    $('#purchased').hide();
     var url = 'http://localhost:8080/Buy/' + productID;
     $.ajax({
         url: url,
@@ -82,21 +123,8 @@ function buyItem(productID) {
         mimeType: 'application/json',
         mode: 'cors'
     })
-        // fetch('http://localhost:8080/Buy/' + productID, {
-        //     method: 'DELETE',
-        //     // body: JSON.stringify({
-        //     //     ItemName:
-        //     // })
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     dataType: 'json',
-        //     mode: 'no-cors'
-        // })
         .then(function handleResponse(response) {
             var DATA = response;
-            // $('#BuyItem').click(function() {
-            // });
             console.log(DATA);
         })
         .catch(function handleError(error) {
@@ -136,19 +164,9 @@ function sellItem() {
         });
 }
 
-// $('#BuyItem').on('submit', function(event) {
-//     event.preventDefault();
-// buyItem();
-// });
-
 $('#sellForm').on('submit', function(event) {
     event.preventDefault();
     sellItem();
-    // $('#purchased').show();
-    // $('#signup-Page').hide();
-    // $('#login-Page').hide();
-    // $('#feed-div').hide();
-    // $('#Store').hide();
 });
 
 function main() {
