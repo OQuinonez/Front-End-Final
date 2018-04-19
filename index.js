@@ -181,6 +181,7 @@ $('#signInForm').on('submit', function(event) {
 function loadPages() {
     $('#Sign-Up').click(function() {
         $('#signup-Page').show();
+        $('newFeed-div').hide();
         $('#purchased').hide();
         $('#Store').hide();
         $('#feed-div').hide();
@@ -190,6 +191,7 @@ function loadPages() {
     });
     $('#back').click(function() {
         $('#Store').show();
+        $('newFeed-div').hide();
         $('#purchased').hide();
         $('#signup-Page').hide();
         $('#feed-div').hide();
@@ -199,6 +201,7 @@ function loadPages() {
     });
     $('#Back').click(function() {
         $('#Store').show();
+        $('newFeed-div').hide();
         $('#purchased').hide();
         $('#signup-Page').hide();
         $('#feed-div').hide();
@@ -208,6 +211,7 @@ function loadPages() {
     });
     $('#backToFeed').click(function() {
         $('#feed-div').show();
+        $('newFeed-div').hide();
         $('#purchased').hide();
         $('#signup-Page').hide();
         $('#Store').hide();
@@ -217,6 +221,7 @@ function loadPages() {
     });
     $('#Log-In').click(function() {
         $('#login-Page').show();
+        $('newFeed-div').hide();
         $('#purchased').hide();
         $('#Store').hide();
         $('#signup-Page').hide();
@@ -226,6 +231,17 @@ function loadPages() {
     });
     $('#sellStuff').click(function() {
         $('#sell-Page').show();
+        $('newFeed-div').hide();
+        $('#purchased').hide();
+        $('#login-Page').hide();
+        $('#Store').hide();
+        $('#signup-Page').hide();
+        $('#feed-div').hide();
+        $('#purchased').hide();
+    });
+    $('#sellItems').click(function() {
+        $('#sell-Page').show();
+        $('newFeed-div').hide();
         $('#purchased').hide();
         $('#login-Page').hide();
         $('#Store').hide();
@@ -235,6 +251,16 @@ function loadPages() {
     });
     $('#BuyItem').click(function() {
         $('#purchased').show();
+        $('#sell-Page').hide();
+        $('#login-Page').hide();
+        $('#Store').hide();
+        $('#signup-Page').hide();
+        $('#feed-div').hide();
+        $('#purchased').hide();
+    });
+    $('#newBuyItem').click(function() {
+        $('#newDisplay').show();
+        $('#purchased').hide();
         $('#sell-Page').hide();
         $('#login-Page').hide();
         $('#Store').hide();
