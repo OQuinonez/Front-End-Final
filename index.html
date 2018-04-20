@@ -34,7 +34,7 @@
             <!-- sign up -->
             <div id="signup-Page" hidden>
                 <form id="signInForm">
-                    <div class="col-lg-6 col-lg-offset-3">
+                    <div class="col-lg-7 col-lg-offset-3">
                         <div class="form-group">
                             <label for="Username" class="control-label">Username:</label>
                             <input type="text" id="username" placeholder="Username" class="form-control">
@@ -70,7 +70,7 @@
             <!-- login -->
             <div id="login-Page" hidden>
                 <form id="logInForm">
-                    <div class="col-lg-6 col-lg-offset-3">
+                    <div class="col-lg-7 col-lg-offset-3">
                         <div class="form-group">
                             <label for="email">Email: </label>
                             <br>
@@ -90,13 +90,15 @@
 
             <!-- feed -->
             <div id="feed-div" hidden>
-                <button class="btn btn-primary SignLog" onclick="logout()" style="border-color: white">Log Out</button>
-                <button class="btn btn-primary SignLog" id="sellStuff" style="border-color : white">Sell</button>
+                <center>
+                    <button class="btn btn-primary SignLog" onclick="logout()" style="border-color: white">Log Out</button>
+                    <button class="btn btn-primary SignLog" id="sellStuff" style="border-color : white">Sell</button>
+                </center>
                 <div id="DisplayInventory"></div>
             </div>
             <div id="sell-Page" hidden>
                 <form id="sellForm">
-                    <div class="col-lg-6 col-lg-offset-3">
+                    <div class="col-lg-7 col-lg-offset-3">
                         <div class="form-group">
                             <label for="itemName" class="control-label">Item Name:</label>
                             <input type="text" id="itemName" placeholder="Item Name" class="form-control" required>
@@ -124,8 +126,10 @@
                 <button type="button" id="newFeed" class="btn btn-primary SignLog" role="button">Back Home</button>
             </div>
             <div id="newFeed-div" hidden>
-                <button class="btn btn-primary SignLog" onclick="logout()" style="border-color: white">Log Out</button>
-                <button class="btn btn-primary SignLog" id="sellItems" style="border-color : white">Sell</button>
+                <center>
+                    <button class="btn btn-primary SignLog" onclick="logout()" style="border-color: white">Log Out</button>
+                    <button class="btn btn-primary SignLog" id="sellItems" style="border-color : white">Sell</button>
+                </center>
                 <div id="newDisplay"></div>
             </div>
         </div>
