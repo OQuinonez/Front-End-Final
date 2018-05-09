@@ -158,9 +158,14 @@ function checkValidEmail() {
 
 function checkSignInForm() {
     if (checkValidPassword() && checkValidEmail() && checkValidName()) {
+        showNewInventory();
+        $('#newFeed-div').show();
+        $('#purchased').hide();
         $('#signup-Page').hide();
-        $('#login-page').hide();
-        $('#feed-div').show();
+        $('#Store').hide();
+        $('#login-Page').hide();
+        $('#purchased').hide();
+        $('#sell-Page').hide();
     } else {
         $('#afterFormMessage')
             .html('<h4 class="text-danger">Incomplete Form</h4>')

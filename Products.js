@@ -106,6 +106,7 @@ function buyItem(productID) {
     console.log(productID);
     $('#purchased').show();
     $('#sell-Page').hide();
+    $('#newFeed-div').hide();
     $('#login-Page').hide();
     $('#Store').hide();
     $('#signup-Page').hide();
