@@ -158,6 +158,14 @@ function sellItem() {
         .then(function handleResponse(response) {
             var DATA = response;
             console.log(DATA);
+            showNewInventory();
+            $('#newFeed-div').show();
+            $('#purchased').hide();
+            $('#signup-Page').hide();
+            $('#Store').hide();
+            $('#login-Page').hide();
+            $('#purchased').hide();
+            $('#sell-Page').hide();
         })
         .catch(function handleError(error) {
             console.log(error);

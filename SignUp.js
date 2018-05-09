@@ -26,6 +26,14 @@ function CreateNewUser() {
         .then(function handleResponse(response) {
             var DATA = response;
             console.log(DATA);
+            showNewInventory();
+            $('#newFeed-div').show();
+            $('#purchased').hide();
+            $('#signup-Page').hide();
+            $('#Store').hide();
+            $('#login-Page').hide();
+            $('#purchased').hide();
+            $('#sell-Page').hide();
         })
         .catch(function handleError(error) {
             console.log(error);
@@ -49,10 +57,14 @@ function logIn(event) {
         .then(function handleResponse(response) {
             console.log('Successfully logged IN');
             var DATA = response;
-            $('#Store').hide();
+            showNewInventory();
+            $('#newFeed-div').show();
+            $('#purchased').hide();
             $('#signup-Page').hide();
+            $('#Store').hide();
             $('#login-Page').hide();
-            $('#feed-div').show();
+            $('#purchased').hide();
+            $('#sell-Page').hide();
         })
         .catch(function handleError(error) {
             console.log('Something Is Wrong');
